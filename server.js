@@ -19,13 +19,13 @@ app.use(express.bodyParser());
  * router
  */
 
-app.post("/signup", middleware.signup.validate, user.post.signup);
-app.post("/login", middleware.login.validate, user.post.login);
-app.post("/normal_login", middleware.login.validate, user.post.login_normal);
-app.get("/user/:id/collection", book.collect.all);
-app.get("/book/:id/collection", middleware.collection.validate_basic, book.collect.get);
-app.post("/book/:id/collection", middleware.collection.validate_basic, middleware.collection.validate_other, book.collect.post);
-app.put("/book/:id/collection", middleware.collection.validate_basic, middleware.collection.validate_other, book.collect.put);
-app.delete("/book/:id/collection", middleware.collection.validate_basic, book.collect.delete);
-app.listen(3000);
+app.post("/signup", middleware.allow_all, middleware.signup.validate, user.post.signup);
+app.post("/login", middleware.allow_all, middleware.login.validate, user.post.login);
+app.post("/normal_login", middleware.allow_all, middleware.login.validate, user.post.login_normal);
+app.get("/user/:id/collection", middleware.allow_all, book.collect.all);
+app.get("/book/:id/collection", middleware.allow_all, middleware.collection.validate_basic, book.collect.get);
+app.post("/book/:id/collection", middleware.allow_all, middleware.collection.validate_basic, middleware.collection.validate_other, book.collect.post);
+app.put("/book/:id/collection", middleware.allow_all, middleware.collection.validate_basic, middleware.collection.validate_other, book.collect.put);
+app.delete("/book/:id/collection", middleware.allow_all, middleware.collection.validate_basic, book.collect.delete);
+app.listen(4000);
 module.exports = app;

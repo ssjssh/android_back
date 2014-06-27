@@ -5,11 +5,6 @@
         "express": "3.x",
         "superagent": "0.18.0",
         "ejs": "1.0.0",
-        "urlencode": "0.2.0",
-        "mongodb": "1.4.7",
-        "jscover": "0.2.4",
-        "mocha": "1.20.1",
-        "supertest": "0.13.0",
-        "connect": "3.0.1",
+        "mongodb": "1.4.7"
     }
 }

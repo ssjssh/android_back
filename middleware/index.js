@@ -9,3 +9,7 @@ exports.login.validate = login_middleware.validate_input;
 exports.signup = {};
 exports.signup.validate = signup_middleware.validate_input;
 exports.collection = collection;
+exports.allow_all = function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    next();
+};
